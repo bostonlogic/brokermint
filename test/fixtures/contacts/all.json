@@ -1,0 +1,16 @@
+[
+    {
+        "id": 1234,
+        "contact_type": "agent",
+        "first_name": "Hermione",
+        "last_name": "Granger",
+        "email": "hermione.granger@hogwarts.net"
+    },
+    {
+        "id": 5678,
+        "contact_type": "agent",
+        "first_name": "Ginny",
+        "last_name": "Weasley",
+        "email": "ginny.weasley@hogwarts.net"
+    }
+]

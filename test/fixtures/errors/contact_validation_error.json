@@ -1,0 +1,7 @@
+{
+    "error": {
+        "extrernal_id": null,
+        "error": "Validation failed: Email can't be blank"
+    },
+    "status": 400
+}

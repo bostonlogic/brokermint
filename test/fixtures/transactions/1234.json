@@ -1,0 +1,48 @@
+{
+    "id": 1234,
+    "address": "146 Aldon Drive",
+    "city": "Chester",
+    "state": "CA",
+    "zip": "96020",
+    "status": "listing",
+    "price": 205000,
+    "transaction_type": "traditional sale",
+    "representing": "seller",
+    "acceptance_date": null,
+    "expiration_date": null,
+    "created_at": 1559603744941,
+    "updated_at": 1559603745288,
+    "closing_date": null,
+    "total_gross_commission": 10250,
+    "listing_date": null,
+    "external_id": null,
+    "timezone": null,
+    "commissions_finalized_at": null,
+    "custom_id": "TR-2019-640224",
+    "closed_at": null,
+    "custom_attributes": [
+        {
+            "type": "text",
+            "label": "MLS #",
+            "name": "mls_number",
+            "value": null
+        },
+        {
+            "type": "dropdown",
+            "label": "Lead source",
+            "name": "lead_source",
+            "value": null
+        },
+        {
+            "type": "text",
+            "label": "County",
+            "name": "county",
+            "value": null
+        }
+    ],
+    "buying_side_representer": null,
+    "listing_side_representer": {
+        "id": 8930,
+        "type": "Account"
+    }
+}

@@ -1,0 +1,23 @@
+{
+    "id": 1234,
+    "email": "lily.evans@hogwarts.net",
+    "created_at": 1558463726484,
+    "updated_at": 1559674689622,
+    "first_name": "Lily",
+    "last_name": "Evans",
+    "phone": "",
+    "active": true,
+    "birthday": null,
+    "company": "",
+    "external_id": null,
+    "role": "owner",
+    "anniversary_date": 1558463728000,
+    "team": null,
+    "address": null,
+    "city": null,
+    "state": null,
+    "zip": null,
+    "license_#": null,
+    "license_expiration": null,
+    "avatar_url": "/assets/no-logo.png"
+}

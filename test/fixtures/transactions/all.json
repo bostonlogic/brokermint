@@ -1,0 +1,242 @@
+[
+    {
+        "id": 1234,
+        "address": "146 Aldon Drive",
+        "city": "Chester",
+        "state": "CA",
+        "zip": "96020",
+        "status": "listing",
+        "price": 205000,
+        "transaction_type": "traditional sale",
+        "representing": "seller",
+        "acceptance_date": null,
+        "expiration_date": null,
+        "created_at": 1559603744941,
+        "updated_at": 1559603745288,
+        "closing_date": null,
+        "total_gross_commission": 10250,
+        "listing_date": null,
+        "external_id": null,
+        "timezone": null,
+        "commissions_finalized_at": null,
+        "custom_id": "TR-2019-640224",
+        "closed_at": null,
+        "custom_attributes": [
+            {
+                "type": "text",
+                "label": "MLS #",
+                "name": "mls_number",
+                "value": null
+            },
+            {
+                "type": "dropdown",
+                "label": "Lead source",
+                "name": "lead_source",
+                "value": null
+            },
+            {
+                "type": "text",
+                "label": "County",
+                "name": "county",
+                "value": null
+            }
+        ],
+        "buying_side_representer": null,
+        "listing_side_representer": {
+            "id": 1234,
+            "type": "Account"
+        }
+    },
+    {
+        "id": 5678,
+        "address": "321 Real street",
+        "city": "Boston",
+        "state": "MA",
+        "zip": "02135",
+        "status": "listing",
+        "price": 277247,
+        "transaction_type": "traditional sale",
+        "representing": "buyer",
+        "acceptance_date": null,
+        "expiration_date": null,
+        "created_at": 1559608940958,
+        "updated_at": 1559680587036,
+        "closing_date": null,
+        "total_gross_commission": 0,
+        "listing_date": null,
+        "external_id": "TEST-ID1",
+        "timezone": 0,
+        "commissions_finalized_at": null,
+        "custom_id": "TR-2019-640260",
+        "closed_at": null,
+        "custom_attributes": [
+            {
+                "type": "text",
+                "label": "MLS #",
+                "name": "mls_number",
+                "value": null
+            },
+            {
+                "type": "dropdown",
+                "label": "Lead source",
+                "name": "lead_source",
+                "value": null
+            },
+            {
+                "type": "text",
+                "label": "County",
+                "name": "county",
+                "value": null
+            }
+        ],
+        "buying_side_representer": {
+            "id": 1234,
+            "type": "Account"
+        },
+        "listing_side_representer": null
+    },
+    {
+        "id": 9012,
+        "address": "286 Sumner St, #2",
+        "city": "Boston",
+        "state": "MA",
+        "zip": "02128",
+        "status": "listing",
+        "price": 639000,
+        "transaction_type": "traditional sale",
+        "representing": "buyer",
+        "acceptance_date": null,
+        "expiration_date": null,
+        "created_at": 1559681193696,
+        "updated_at": 1559681194167,
+        "closing_date": null,
+        "total_gross_commission": 0,
+        "listing_date": null,
+        "external_id": "TEST-ID2",
+        "timezone": 0,
+        "commissions_finalized_at": null,
+        "custom_id": "TR-2019-640877",
+        "closed_at": null,
+        "custom_attributes": [
+            {
+                "type": "text",
+                "label": "MLS #",
+                "name": "mls_number",
+                "value": null
+            },
+            {
+                "type": "dropdown",
+                "label": "Lead source",
+                "name": "lead_source",
+                "value": null
+            },
+            {
+                "type": "text",
+                "label": "County",
+                "name": "county",
+                "value": null
+            }
+        ],
+        "buying_side_representer": {
+            "id": 1234,
+            "type": "Account"
+        },
+        "listing_side_representer": null
+    },
+    {
+        "id": 3456,
+        "address": "286 Sumner St, #1",
+        "city": "Boston",
+        "state": "MA",
+        "zip": "02128",
+        "status": "listing",
+        "price": 599000,
+        "transaction_type": "traditional sale",
+        "representing": "buyer",
+        "acceptance_date": null,
+        "expiration_date": null,
+        "created_at": 1559682146794,
+        "updated_at": 1559682146978,
+        "closing_date": null,
+        "total_gross_commission": 0,
+        "listing_date": null,
+        "external_id": "TEST-ID3",
+        "timezone": 0,
+        "commissions_finalized_at": null,
+        "custom_id": "TR-2019-640909",
+        "closed_at": null,
+        "custom_attributes": [
+            {
+                "type": "text",
+                "label": "MLS #",
+                "name": "mls_number",
+                "value": null
+            },
+            {
+                "type": "dropdown",
+                "label": "Lead source",
+                "name": "lead_source",
+                "value": null
+            },
+            {
+                "type": "text",
+                "label": "County",
+                "name": "county",
+                "value": null
+            }
+        ],
+        "buying_side_representer": {
+            "id": 1234,
+            "type": "Account"
+        },
+        "listing_side_representer": null
+    },
+    {
+        "id": 7890,
+        "address": "524 Columbus Ave, #4",
+        "city": "Boston",
+        "state": "MA",
+        "zip": "02118",
+        "status": "listing",
+        "price": 3400,
+        "transaction_type": "traditional sale",
+        "representing": "buyer",
+        "acceptance_date": null,
+        "expiration_date": null,
+        "created_at": 1559683328436,
+        "updated_at": 1559683328744,
+        "closing_date": null,
+        "total_gross_commission": 0,
+        "listing_date": null,
+        "external_id": "TEST-ID4",
+        "timezone": 0,
+        "commissions_finalized_at": null,
+        "custom_id": "TR-2019-640935",
+        "closed_at": null,
+        "custom_attributes": [
+            {
+                "type": "text",
+                "label": "MLS #",
+                "name": "mls_number",
+                "value": null
+            },
+            {
+                "type": "dropdown",
+                "label": "Lead source",
+                "name": "lead_source",
+                "value": null
+            },
+            {
+                "type": "text",
+                "label": "County",
+                "name": "county",
+                "value": null
+            }
+        ],
+        "buying_side_representer": {
+            "id": 1234,
+            "type": "Account"
+        },
+        "listing_side_representer": null
+    }
+]

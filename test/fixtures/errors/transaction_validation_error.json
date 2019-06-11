@@ -1,0 +1,4 @@
+{
+    "error": "Validation failed: Transaction type can't be blank, Address can't be blank, City can't be blank, State can't be blank, Zip can't be blank, Price can't be blank, Price is not a number, Status is not included in the list, Representing is not included in the list, Side representers  - at least one side has to be represented by Boston Logic",
+    "status": 400
+}
