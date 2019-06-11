@@ -22,7 +22,10 @@ module Brokermint
 
     def self.resources
       {
-        contacts: ContactResource
+        contacts: ContactResource,
+        transactions: TransactionResource,
+        transaction_commissions: TransactionCommissionResource,
+        users: UserResource
       }
     end
 
