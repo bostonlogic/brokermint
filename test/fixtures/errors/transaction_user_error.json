@@ -1,0 +1,4 @@
+{
+    "error": "ActiveRecord::RecordNotFound",
+    "status": 404
+}

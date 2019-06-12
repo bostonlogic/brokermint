@@ -1,0 +1,4 @@
+{
+    "error": "Validation failed: Contact can't be blank, Role can't be blank",
+    "status": 400
+}

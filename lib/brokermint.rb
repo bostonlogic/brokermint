@@ -14,6 +14,7 @@ module Brokermint
   autoload :TransactionCommissionPayeeMapping, 'brokermint/mappings/transaction_commission_payee_mapping'
   autoload :TransactionCommissionTierMapping, 'brokermint/mappings/transaction_commission_tier_mapping'
   autoload :TransactionMapping, 'brokermint/mappings/transaction_mapping'
+  autoload :TransactionParticipantMapping, 'brokermint/mappings/transaction_participant_mapping'
   autoload :UserMapping, 'brokermint/mappings/user_mapping'
 
   autoload :BaseModel, 'brokermint/models/base_model'
@@ -25,10 +26,12 @@ module Brokermint
   autoload :TransactionCommission, 'brokermint/models/transaction_commission'
   autoload :TransactionCommissionPayee, 'brokermint/models/transaction_commission_payee'
   autoload :TransactionCommissionTier, 'brokermint/models/transaction_commission_tier'
+  autoload :TransactionParticipant, 'brokermint/models/transaction_participant'
   autoload :User, 'brokermint/models/user'
 
   autoload :ContactResource, 'brokermint/resources/contact_resource'
   autoload :TransactionCommissionResource, 'brokermint/resources/transaction_commission_resource'
+  autoload :TransactionParticipantResource, 'brokermint/resources/transaction_participant_resource'
   autoload :TransactionResource, 'brokermint/resources/transaction_resource'
   autoload :UserResource, 'brokermint/resources/user_resource'
 

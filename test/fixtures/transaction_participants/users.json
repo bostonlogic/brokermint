@@ -1,0 +1,11 @@
+[
+  {
+    "id": 1234,
+    "role": "transaction owner",
+    "type": "User",
+    "owner": true,
+    "email": "minerva.mcgonagall@hogwarts.edu",
+    "first_name": "Minerva",
+    "last_name": "McGonagall"
+  }
+]
