@@ -1,0 +1,8 @@
+[
+  {
+    "id": 1234,
+    "completed_at": 1429147920000,
+    "file_name": "3998_Indiana_St,_Carlton,_MA,_90210.zip",
+    "link": "https://s3-eu-central-1.amazonaws.com/BUCKET/FILE"
+  }
+]
