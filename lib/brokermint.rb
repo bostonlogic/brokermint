@@ -11,6 +11,7 @@ module Brokermint
   autoload :CustomAttributeMapping, 'brokermint/mappings/custom_attribute_mapping'
   autoload :RepresenterMapping, 'brokermint/mappings/representer_mapping'
   autoload :TransactionBackupMapping, 'brokermint/mappings/transaction_backup_mapping'
+  autoload :TransactionChecklistMapping, 'brokermint/mappings/transaction_checklist_mapping'
   autoload :TransactionCommissionMapping, 'brokermint/mappings/transaction_commission_mapping'
   autoload :TransactionCommissionPayeeMapping, 'brokermint/mappings/transaction_commission_payee_mapping'
   autoload :TransactionCommissionTierMapping, 'brokermint/mappings/transaction_commission_tier_mapping'
@@ -25,6 +26,7 @@ module Brokermint
   autoload :Representer, 'brokermint/models/representer'
   autoload :Transaction, 'brokermint/models/transaction'
   autoload :TransactionBackup, 'brokermint/models/transaction_backup'
+  autoload :TransactionChecklist, 'brokermint/models/transaction_checklist'
   autoload :TransactionCommission, 'brokermint/models/transaction_commission'
   autoload :TransactionCommissionPayee, 'brokermint/models/transaction_commission_payee'
   autoload :TransactionCommissionTier, 'brokermint/models/transaction_commission_tier'
@@ -33,6 +35,7 @@ module Brokermint
 
   autoload :ContactResource, 'brokermint/resources/contact_resource'
   autoload :TransactionBackupResource, 'brokermint/resources/transaction_backup_resource'
+  autoload :TransactionChecklistResource, 'brokermint/resources/transaction_checklist_resource'
   autoload :TransactionCommissionResource, 'brokermint/resources/transaction_commission_resource'
   autoload :TransactionParticipantResource, 'brokermint/resources/transaction_participant_resource'
   autoload :TransactionResource, 'brokermint/resources/transaction_resource'
