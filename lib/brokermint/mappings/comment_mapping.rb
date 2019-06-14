@@ -5,8 +5,14 @@ module Brokermint
     kartograph do
       mapping Comment
 
-      scoped :read, :create, :update do
+      scoped :read do
         property :created_at
+        property :text
+        property :author
+        property :author_id
+      end
+
+      scoped :create, :update do
         property :text
         property :author
         property :author_id

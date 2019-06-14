@@ -1,0 +1,14 @@
+{
+  "id": 1234,
+  "name": "Contact inspection company",
+  "description": null,
+  "document_required": false,
+  "done": false,
+  "deadline": 1402210800000,
+  "comments": [],
+  "created_at": 1388394273832,
+  "updated_at": 1402189383407,
+  "exemption": null,
+  "submitted_at": null,
+  "document_id": null
+}

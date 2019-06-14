@@ -17,6 +17,7 @@ module Brokermint
   autoload :TransactionCommissionTierMapping, 'brokermint/mappings/transaction_commission_tier_mapping'
   autoload :TransactionMapping, 'brokermint/mappings/transaction_mapping'
   autoload :TransactionParticipantMapping, 'brokermint/mappings/transaction_participant_mapping'
+  autoload :TransactionTaskMapping, 'brokermint/mappings/transaction_task_mapping'
   autoload :UserMapping, 'brokermint/mappings/user_mapping'
 
   autoload :BaseModel, 'brokermint/models/base_model'
@@ -31,6 +32,7 @@ module Brokermint
   autoload :TransactionCommissionPayee, 'brokermint/models/transaction_commission_payee'
   autoload :TransactionCommissionTier, 'brokermint/models/transaction_commission_tier'
   autoload :TransactionParticipant, 'brokermint/models/transaction_participant'
+  autoload :TransactionTask, 'brokermint/models/transaction_task'
   autoload :User, 'brokermint/models/user'
 
   autoload :ContactResource, 'brokermint/resources/contact_resource'
@@ -39,6 +41,7 @@ module Brokermint
   autoload :TransactionCommissionResource, 'brokermint/resources/transaction_commission_resource'
   autoload :TransactionParticipantResource, 'brokermint/resources/transaction_participant_resource'
   autoload :TransactionResource, 'brokermint/resources/transaction_resource'
+  autoload :TransactionTaskResource, 'brokermint/resources/transaction_task_resource'
   autoload :UserResource, 'brokermint/resources/user_resource'
 
   autoload :ErrorHandlingResourcable, 'brokermint/error_handling_resourcable'

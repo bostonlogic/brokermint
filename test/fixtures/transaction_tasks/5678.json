@@ -1,0 +1,25 @@
+{
+  "id": 5678,
+  "name": "Listing agreement",
+  "description": "Sign listing agrement with the client",
+  "document_required": true,
+  "done": true,
+  "deadline": 1386403200000,
+  "comments": [
+    {
+      "created_at": 1389571395834,
+      "text": "Called client, left voice mail",
+      "author": "John Pushdo"
+    },
+    {
+      "created_at": 1389571395137,
+      "text": "Client called me back, agreed to meet tomorrow and sign the agreement",
+      "author": "John Pushdo"
+    }
+  ],
+  "created_at": 1388127044996,
+  "updated_at": 1390984177675,
+  "exemption": null,
+  "submitted_at": 1396599390310,
+  "document_id": 16
+}
