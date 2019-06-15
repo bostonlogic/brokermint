@@ -119,132 +119,72 @@ class Brokermint::TransactionTaskResourceTest < Minitest::Test
   end
 
   class Create < Minitest::Test
-    def test_creates_and_returns_a_transaction
-      skip
-      brokermint_transaction = Brokermint::TransactionTask.new(
-        external_id: 'TEST-ID1',
-        address: '146 Aldon Drive',
-        city: 'Chester',
-        state: 'CA',
-        zip: '96020',
-        status: 'listed',
-        transaction_type: 'traditional sale',
-        price: 205000,
-        representing: 'buyer',
-        total_gross_commission: 6,
-        listing_date: 1549564698000,
-        buying_side_representer: Brokermint::Representer.new(
-          id: 44765,
-          type: 'Account'
-        ),
-        timezone: -4
+    def test_creates_and_returns_a_transaction_task
+      brokermint_transaction_task = Brokermint::TransactionTask.new(
+        name: 'Gin and Tonic',
+        description: 'Gin, Tonic, Ice, and Lime Slice',
+        document_required: true,
+        done: false,
+        deadline: 1386403200000,
+        exemption: false,
+        document_id: 1234
       )
-      stub_request(:post, "https://my.brokermint.com/api/v1/transactions").
-        with(body: Brokermint::TransactionMapping.representation_for(:create, brokermint_transaction)).
-        to_return(status: 201, body: api_fixture('transactions/1234'))
+      stub_request(:post, 'https://my.brokermint.com/api/v1/transactions/1234/checklists/1234/tasks').
+        with(body: Brokermint::TransactionTaskMapping.representation_for(:create, brokermint_transaction_task)).
+        to_return(status: 200, body: api_fixture('transaction_tasks/9012'))
       connection = Brokermint::Client.new('access_token').connection
       resource = Brokermint::TransactionTaskResource.new(connection: connection)
 
-      transaction = resource.create(brokermint_transaction)
+      transaction_task = resource.create(brokermint_transaction_task, transaction_id: 1234, checklist_id: 1234)
 
-      assert_instance_of Brokermint::TransactionTask, transaction
-      assert_equal 1234, transaction.id
-      assert_equal '146 Aldon Drive', transaction.address
-      assert_equal 'Chester', transaction.city
-      assert_equal 'CA', transaction.state
-      assert_equal '96020', transaction.zip
-      assert_equal 'listing', transaction.status
-      assert_equal 205000, transaction.price
-      assert_equal 'traditional sale', transaction.transaction_type
-      assert_equal 'seller', transaction.representing
-      assert_nil transaction.acceptance_date
-      assert_nil transaction.expiration_date
-      assert_equal 1559603744941, transaction.created_at
-      assert_equal 1559603745288, transaction.updated_at
-      assert_nil transaction.closing_date
-      assert_equal 10250, transaction.total_gross_commission
-      assert_nil transaction.listing_date
-      assert_nil transaction.external_id
-      assert_nil transaction.timezone
-      assert_nil transaction.commissions_finalized_at
-      assert_equal 'TR-2019-640224', transaction.custom_id
-      assert_nil transaction.closed_at
-      transaction.custom_attributes.each{ |custom_attribute| assert_instance_of Brokermint::CustomAttribute, custom_attribute }
-      assert_nil transaction.buying_side_representer
-      assert_instance_of Brokermint::Representer, transaction.listing_side_representer
+      assert_instance_of Brokermint::TransactionTask, transaction_task
+      assert_equal 9012, transaction_task.id
+      assert_equal 'Gin and Tonic', transaction_task.name
+      assert_equal 'Gin, Tonic, Ice, and Lime Slice', transaction_task.description
+      assert_equal true, transaction_task.document_required
+      assert_equal true, transaction_task.done
+      assert_equal 1386403200000, transaction_task.deadline
+      assert_nil transaction_task.exemption
+      assert_equal 1234, transaction_task.document_id
+      assert_equal [], transaction_task.comments
     end
   end
 
   class Update < Minitest::Test
     def test_updates_and_returns_a_transaction
-      skip
       brokermint_transaction = Brokermint::TransactionTask.new(
-        external_id: 'TEST-ID1',
-        city: 'Chester',
-        state: 'CA',
-        status: 'listed'
+        external_id: 'Gin and Bitter Lemon',
+        description: 'Gin, Bitter Lemon, Ice. Garnish with a Lemon slice and Lime Slice',
+        comments: [Brokermint::Comment.new(text: 'Lily had the right idea', author: 'Ginny Weasley')]
       )
-      stub_request(:put, "https://my.brokermint.com/api/v1/transactions/1234").
-        with(body: "{\"city\":\"Chester\",\"state\":\"CA\",\"status\":\"listed\",\"external_id\":\"TEST-ID1\",\"custom_attributes\":[]}").
-        to_return(status: 200, body: api_fixture('transactions/1234'))
+      stub_request(:put, 'https://my.brokermint.com/api/v1/transactions/1234/checklists/1234/tasks/9012').
+        with(body: "{\"description\":\"Gin, Bitter Lemon, Ice. Garnish with a Lemon slice and Lime Slice\",\"comments\":[{\"text\":\"Lily had the right idea\",\"author\":\"Ginny Weasley\",\"author_id\":null}]}").
+        to_return(status: 200, body: api_fixture('transaction_tasks/9012_updated'))
       connection = Brokermint::Client.new('access_token').connection
       resource = Brokermint::TransactionTaskResource.new(connection: connection)
 
-      transaction = resource.update(brokermint_transaction, transaction_id: 1234)
+      transaction_task = resource.update(brokermint_transaction, transaction_id: 1234, checklist_id: 1234, task_id: 9012)
 
-      assert_instance_of Brokermint::TransactionTask, transaction
-      assert_equal 1234, transaction.id
-      assert_equal '146 Aldon Drive', transaction.address
-      assert_equal 'Chester', transaction.city
-      assert_equal 'CA', transaction.state
-      assert_equal '96020', transaction.zip
-      assert_equal 'listing', transaction.status
-      assert_equal 205000, transaction.price
-      assert_equal 'traditional sale', transaction.transaction_type
-      assert_equal 'seller', transaction.representing
-      assert_nil transaction.acceptance_date
-      assert_nil transaction.expiration_date
-      assert_equal 1559603744941, transaction.created_at
-      assert_equal 1559603745288, transaction.updated_at
-      assert_nil transaction.closing_date
-      assert_equal 10250, transaction.total_gross_commission
-      assert_nil transaction.listing_date
-      assert_nil transaction.external_id
-      assert_nil transaction.timezone
-      assert_nil transaction.commissions_finalized_at
-      assert_equal 'TR-2019-640224', transaction.custom_id
-      assert_nil transaction.closed_at
-      transaction.custom_attributes.each{ |custom_attribute| assert_instance_of Brokermint::CustomAttribute, custom_attribute }
-      assert_nil transaction.buying_side_representer
-      assert_instance_of Brokermint::Representer, transaction.listing_side_representer
-    end
-  end
+      assert_instance_of Brokermint::TransactionTask, transaction_task
 
-  class Destroy < Minitest::Test
-    def test_returns_true_for_a_destroy_response
-      skip
-      stub_request(:delete, "https://my.brokermint.com/api/v1/transactions/1234").
-        to_return(status: 200, body: '')
-      connection = Brokermint::Client.new('access_token').connection
-      resource = Brokermint::TransactionTaskResource.new(connection: connection)
-
-      transaction = resource.destroy(transaction_id: 1234)
-
-      assert_equal true, transaction
+      assert_equal 9012, transaction_task.id
+      assert_equal 'Gin and Bitter Lemon', transaction_task.name
+      assert_equal 'Gin, Bitter Lemon, Ice. Garnish with a Lemon slice and Lime Slice', transaction_task.description
+      assert_equal [], transaction_task.comments
     end
   end
 
   class ReviewSubmit < Minitest::Test
     def test_returns_true_for_a_destroy_response
-      skip
-      stub_request(:post, "https://my.brokermint.com/api/v1/transactions/1234").
+      skip('Unsure of what is required for this endpoint')
+      stub_request(:post, 'https://my.brokermint.com/api/v1/transactions/1234/checklists/1234/tasks/9012/submit_document').
         to_return(status: 200, body: '')
       connection = Brokermint::Client.new('access_token').connection
       resource = Brokermint::TransactionTaskResource.new(connection: connection)
 
-      transaction = resource.destroy(transaction_id: 1234)
+      transaction_task = resource.destroy(transaction_id: 1234)
 
-      assert_equal true, transaction
+      assert_equal true, transaction_task
     end
   end
 

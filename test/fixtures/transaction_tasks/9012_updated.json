@@ -1,0 +1,14 @@
+{
+  "id": 9012,
+  "name": "Gin and Bitter Lemon",
+  "description": "Gin, Bitter Lemon, Ice. Garnish with a Lemon slice and Lime Slice",
+  "document_required": true,
+  "done": true,
+  "deadline": 1386403200000,
+  "comments": [],
+  "created_at": 1388127044996,
+  "updated_at": 1578873795000,
+  "exemption": null,
+  "submitted_at": 1396599390310,
+  "document_id": 1234
+}
