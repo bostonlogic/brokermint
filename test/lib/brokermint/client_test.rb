@@ -38,12 +38,29 @@ class Brokermint::ClientTest < Minitest::Test
 
   end
 
-  class MethodMissing < Minitest::Test
+  class EndpointHandling < Minitest::Test
 
-    def test_valid_endpoints_succeed
-      brokermint_client = Brokermint::Client.new('alohomora')
+    def setup
+      @brokermint_client = Brokermint::Client.new('alohomora')
+    end
 
-      assert brokermint_client.contacts
+    {
+      :contacts                 => Brokermint::ContactResource,
+      :incoming_transactions    => Brokermint::IncomingTransactionResource,
+      :reports                  => Brokermint::ReportResource,
+      :transaction_backups      => Brokermint::TransactionBackupResource,
+      :transaction_checklists   => Brokermint::TransactionChecklistResource,
+      :transaction_commissions  => Brokermint::TransactionCommissionResource,
+      :transaction_documents    => Brokermint::TransactionDocumentResource,
+      :transaction_notes        => Brokermint::TransactionNoteResource,
+      :transaction_participants => Brokermint::TransactionParticipantResource,
+      :transaction_tasks        => Brokermint::TransactionTaskResource,
+      :transactions             => Brokermint::TransactionResource,
+      :users                    => Brokermint::UserResource
+    }.each do |method, result|
+      define_method "test_#{method}_returns_#{result}" do
+        assert_instance_of result, @brokermint_client.send(method)
+      end
     end
 
     def test_invalid_endpoints_raise_method_missing_error

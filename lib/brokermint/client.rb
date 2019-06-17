@@ -23,8 +23,16 @@ module Brokermint
     def self.resources
       {
         contacts: ContactResource,
-        transactions: TransactionResource,
+        incoming_transactions: IncomingTransactionResource,
+        reports: ReportResource,
+        transaction_backups: TransactionBackupResource,
+        transaction_checklists: TransactionChecklistResource,
         transaction_commissions: TransactionCommissionResource,
+        transaction_documents: TransactionDocumentResource,
+        transaction_notes: TransactionNoteResource,
+        transaction_participants: TransactionParticipantResource,
+        transaction_tasks: TransactionTaskResource,
+        transactions: TransactionResource,
         users: UserResource
       }
     end
