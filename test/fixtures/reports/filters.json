@@ -1,0 +1,58 @@
+[
+    {
+        "column": "status",
+        "dynamic": true,
+        "options": [
+            {
+                "val": "listing_pending",
+                "text": "listing + pending"
+            },
+            {
+                "val": "listing",
+                "text": "listing"
+            },
+            {
+                "val": "pending",
+                "text": "pending"
+            },
+            {
+                "val": "cancelled",
+                "text": "cancelled"
+            },
+            {
+                "val": "closed",
+                "text": "closed"
+            },
+            {
+                "val": "*",
+                "text": "all statuses"
+            }
+        ]
+    },
+    {
+        "column": "document_status",
+        "dynamic": true,
+        "options": [
+            {
+                "val": "*",
+                "text": "all active transactions"
+            },
+            {
+                "val": "all_docs_complete",
+                "text": "with all docs complete"
+            },
+            {
+                "val": "not_submitted",
+                "text": "with not submitted docs"
+            },
+            {
+                "val": "pending_review",
+                "text": "with pending review docs"
+            },
+            {
+                "val": "rejected",
+                "text": "with rejected docs"
+            }
+        ]
+    }
+]

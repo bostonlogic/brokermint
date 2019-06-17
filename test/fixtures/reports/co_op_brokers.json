@@ -1,0 +1,72 @@
+[
+    {
+        "id": 640224,
+        "account_id": 8930,
+        "address": "146 Aldon Drive, Chester, CA 96020",
+        "location": null,
+        "price": 205000,
+        "status": "listing",
+        "transaction_owner": "Boston Logic",
+        "coop_agent_name": null,
+        "coop_agent_email": null,
+        "coop_agent_phone": null,
+        "coop_office": null,
+        "closing_date": null
+    },
+    {
+        "id": 640935,
+        "account_id": 8930,
+        "address": "524 Columbus Ave, #4, Boston, MA 02118",
+        "location": null,
+        "price": 3400,
+        "status": "listing",
+        "transaction_owner": "Boston Logic",
+        "coop_agent_name": null,
+        "coop_agent_email": null,
+        "coop_agent_phone": null,
+        "coop_office": null,
+        "closing_date": null
+    },
+    {
+        "id": 640909,
+        "account_id": 8930,
+        "address": "286 Sumner St, #1, Boston, MA 02128",
+        "location": null,
+        "price": 599000,
+        "status": "listing",
+        "transaction_owner": "Boston Logic",
+        "coop_agent_name": null,
+        "coop_agent_email": null,
+        "coop_agent_phone": null,
+        "coop_office": null,
+        "closing_date": null
+    },
+    {
+        "id": 640877,
+        "account_id": 8930,
+        "address": "286 Sumner St, #2, Boston, MA 02128",
+        "location": null,
+        "price": 639000,
+        "status": "listing",
+        "transaction_owner": "Boston Logic",
+        "coop_agent_name": null,
+        "coop_agent_email": null,
+        "coop_agent_phone": null,
+        "coop_office": null,
+        "closing_date": null
+    },
+    {
+        "id": 640260,
+        "account_id": 8930,
+        "address": "321 Real street, Boston, MA 02135",
+        "location": null,
+        "price": 277247,
+        "status": "listing",
+        "transaction_owner": "Boston Logic",
+        "coop_agent_name": null,
+        "coop_agent_email": null,
+        "coop_agent_phone": null,
+        "coop_office": null,
+        "closing_date": null
+    }
+]

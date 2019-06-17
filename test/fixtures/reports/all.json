@@ -1,0 +1,74 @@
+[
+    {
+        "name": "Agent profile",
+        "id": "agents_profile"
+    },
+    {
+        "name": "Agent report",
+        "id": "agents"
+    },
+    {
+        "name": "Brokerage report",
+        "id": "brokerage"
+    },
+    {
+        "name": "Brokerage YOY report",
+        "id": "brokerage_yoy"
+    },
+    {
+        "name": "Cancelled sales",
+        "id": "cancelled_sales"
+    },
+    {
+        "name": "CDA report",
+        "id": "cda_generated"
+    },
+    {
+        "name": "Client report",
+        "id": "client_report"
+    },
+    {
+        "name": "Closed + pending sales",
+        "id": "closed_pending_sales"
+    },
+    {
+        "name": "Closed sales",
+        "id": "closed_sales"
+    },
+    {
+        "name": "Co-op brokers",
+        "id": "co_op_brokers"
+    },
+    {
+        "name": "Deposit report",
+        "id": "deposits"
+    },
+    {
+        "name": "Listings",
+        "id": "listings"
+    },
+    {
+        "name": "Lockbox and yard sign",
+        "id": "lockbox_and_yard_sign"
+    },
+    {
+        "name": "Outstanding e-sign requests",
+        "id": "outstanding_esign_requests"
+    },
+    {
+        "name": "Payments",
+        "id": "payments"
+    },
+    {
+        "name": "Pending",
+        "id": "pending_sales"
+    },
+    {
+        "name": "Production report",
+        "id": "production_report"
+    },
+    {
+        "name": "Transaction documents",
+        "id": "transaction_documents"
+    }
+]

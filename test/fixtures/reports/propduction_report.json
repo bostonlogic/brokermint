@@ -1,0 +1,13 @@
+[
+    {
+        "agent": "Boston Logic",
+        "agent_type": "user",
+        "location": null,
+        "pending_for_current_month": 0,
+        "closed_for_current_month": 0,
+        "active_listings_total": 0,
+        "pending_listings": 0,
+        "pending_buyers": 0,
+        "cancelled_for_current_month": 0
+    }
+]
