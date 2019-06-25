@@ -1,5 +1,3 @@
-# Create: POST https://my.brokermint.com/api/v1/transactions/<transaction-id>/notes
-
 module Brokermint
   class TransactionNoteResource < ResourceKit::Resource
     include ErrorHandlingResourcable

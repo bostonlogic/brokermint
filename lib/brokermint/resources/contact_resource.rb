@@ -4,7 +4,7 @@ module Brokermint
 
     resources do
 
-      # GET /contacts[?created_since=<created_since>&updated_since=<updated_since>&external_ids=<external_ids>]
+      # GET /contacts
       action :all do
         verb :get
         query_keys :created_since, :updated_since, :external_ids, :full_info

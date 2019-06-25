@@ -1,6 +1,3 @@
-# List: GET https://my.brokermint.com/api/v1/transactions/<transaction-id>/checklists
-# Show: GET https://my.brokermint.com/api/v1/transactions/<transaction-id>/checklists/<checklist-id>
-
 module Brokermint
   class TransactionChecklistResource < ResourceKit::Resource
     include ErrorHandlingResourcable

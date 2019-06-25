@@ -1,9 +1,3 @@
-# List: GET https://my.brokermint.com/api/v1/transactions/<transaction-id>/checklists/<checklist-id>/tasks
-# Show: GET https://my.brokermint.com/api/v1/transactions/<transaction-id>/checklists/<checklist-id>/tasks/<task-id>
-# Create: POST https://my.brokermint.com/api/v1/transactions/<transaction-id>/checklists/<checklist-id>/tasks
-# Update: PUT https://my.brokermint.com/api/v1/transactions/<transaction-id>/checklists/<checklist-id>/tasks/<task-id>
-# Submit for review: POST https://my.brokermint.com/api/v1/transactions/<transaction-id>/checklists/<checklist-id>/tasks/<task-id>/submit_document
-
 module Brokermint
   class TransactionTaskResource < ResourceKit::Resource
     include ErrorHandlingResourcable

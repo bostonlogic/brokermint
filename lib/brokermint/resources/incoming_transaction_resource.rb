@@ -1,5 +1,3 @@
-# Create: POST https://my.brokermint.com/api/v1/incoming_transactions
-
 module Brokermint
   class IncomingTransactionResource < ResourceKit::Resource
     include ErrorHandlingResourcable

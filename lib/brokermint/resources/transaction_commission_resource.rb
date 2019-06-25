@@ -1,5 +1,3 @@
-# List: GET https://my.brokermint.com/api/v1/transactions/<transaction-id>/commissions
-
 module Brokermint
   class TransactionCommissionResource < ResourceKit::Resource
     include ErrorHandlingResourcable

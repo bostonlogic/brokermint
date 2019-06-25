@@ -1,6 +1,3 @@
-# Create: POST https://my.brokermint.com/api/v1/transactions/<transaction-id>/documents
-# Show: GET https://my.brokermint.com/api/v1/transactions/<transaction-id>/documents/<document-upload-request-id>
-
 module Brokermint
   class TransactionDocumentResource < ResourceKit::Resource
     include ErrorHandlingResourcable

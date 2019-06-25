@@ -1,6 +1,3 @@
-# List: GET https://my.brokermint.com/api/v1/backups
-# Show: GET https://my.brokermint.com/api/v1/transactions/<transaction-id>/backup
-
 module Brokermint
   class TransactionBackupResource < ResourceKit::Resource
     include ErrorHandlingResourcable
@@ -10,6 +7,7 @@ module Brokermint
       # GET /backups
       action :all do
         verb :get
+        query_keys :completed_since, :exclude_backup_ids
         path "#{Brokermint.configuration.path_url}/backups"
         handler(200) { |response| TransactionBackupMapping.extract_collection(response.body, :all) }
       end

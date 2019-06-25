@@ -1,13 +1,3 @@
-# List: GET https://my.brokermint.com/api/v1/transactions/<transaction-id>/participants
-# Show participant-contact: GET https://my.brokermint.com/api/v1/transactions/<transaction-id>/participants/contacts/<contact-id>
-# Show participant-user: GET https://my.brokermint.com/api/v1/transactions/<transaction-id>/participants/users/<user-id>
-# Create participant-contact: POST https://my.brokermint.com/api/v1/transactions/<transaction-id>/participants/contacts
-# Create participant-user: POST https://my.brokermint.com/api/v1/transactions/<transaction-id>/participants/users
-# Update participant-contact: PUT https://my.brokermint.com/api/v1/transactions/<transaction-id>/participants/contacts/<contact-id>
-# Update participant-user: PUT https://my.brokermint.com/api/v1/transactions/<transaction-id>/participants/users/<user-id>
-# Delete participant-contact: DELETE https://my.brokermint.com/api/v1/transactions/<transaction-id>/participants/contacts/<contact-id>
-# Delete participant-contact: DELETE https://my.brokermint.com/api/v1/transactions/<transaction-id>/participants/users/<user-id>
-
 module Brokermint
   class TransactionParticipantResource < ResourceKit::Resource
     include ErrorHandlingResourcable
