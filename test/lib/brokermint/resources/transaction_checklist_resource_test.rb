@@ -6,9 +6,10 @@ class Brokermint::TransactionChecklistResourceTest < Minitest::Test
 
     def setup
       stub_request(:get, 'https://my.brokermint.com/api/v1/transactions/1234/checklists').
+        with(query: {api_key: 'alohomora'}).
         to_return(status: 200, body: api_fixture('transaction_checklists/all'))
 
-      connection = Brokermint::Client.new('access_token').connection
+      connection = Brokermint::Client.new('alohomora').connection
       resource = Brokermint::TransactionChecklistResource.new(connection: connection)
 
       @transaction_checklists = resource.all(transaction_id: 1234)
@@ -33,9 +34,10 @@ class Brokermint::TransactionChecklistResourceTest < Minitest::Test
 
     def test_returns_a_backup
       stub_request(:get, 'https://my.brokermint.com/api/v1/transactions/1234/checklists/1234').
+        with(query: {api_key: 'alohomora'}).
         to_return(status: 200, body: api_fixture('transaction_checklists/1234'))
 
-      connection = Brokermint::Client.new('access_token').connection
+      connection = Brokermint::Client.new('alohomora').connection
       resource = Brokermint::TransactionChecklistResource.new(connection: connection)
 
       transaction_checklist = resource.find(transaction_id: 1234, checklist_id: 1234)

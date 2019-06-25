@@ -6,9 +6,10 @@ class Brokermint::TransactionDocumentResourceTest < Minitest::Test
 
     def test_creates_and_returns_a_document_id
       stub_request(:post, 'https://my.brokermint.com/api/v1/transactions/1234/documents').
+        with(query: {api_key: 'alohomora'}).
         to_return(status: 200, body: api_fixture('transaction_documents/create'))
 
-      connection = Brokermint::Client.new('access_token').connection
+      connection = Brokermint::Client.new('alohomora').connection
       resource = Brokermint::TransactionDocumentResource.new(connection: connection)
 
       transaction_document = resource.create(transaction_id: 1234)
@@ -24,9 +25,10 @@ class Brokermint::TransactionDocumentResourceTest < Minitest::Test
 
     def test_returns_and_maps_a_document_in_processing_upload_status
       stub_request(:get, 'https://my.brokermint.com/api/v1/transactions/1234/documents/1234').
+        with(query: {api_key: 'alohomora'}).
         to_return(status: 200, body: api_fixture('transaction_documents/1234'))
 
-      connection = Brokermint::Client.new('access_token').connection
+      connection = Brokermint::Client.new('alohomora').connection
       resource = Brokermint::TransactionDocumentResource.new(connection: connection)
 
       transaction_document = resource.find(transaction_id: 1234, document_id: 1234)
@@ -41,9 +43,10 @@ class Brokermint::TransactionDocumentResourceTest < Minitest::Test
 
     def test_returns_and_maps_a_document_in_completed_upload_status
       stub_request(:get, 'https://my.brokermint.com/api/v1/transactions/1234/documents/5678').
+        with(query: {api_key: 'alohomora'}).
         to_return(status: 200, body: api_fixture('transaction_documents/5678'))
 
-      connection = Brokermint::Client.new('access_token').connection
+      connection = Brokermint::Client.new('alohomora').connection
       resource = Brokermint::TransactionDocumentResource.new(connection: connection)
 
       transaction_document = resource.find(transaction_id: 1234, document_id: 5678)

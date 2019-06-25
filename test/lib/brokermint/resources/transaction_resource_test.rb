@@ -5,8 +5,9 @@ class Brokermint::ContactResourceTest < Minitest::Test
   class All < Minitest::Test
     def test_returns_an_array_of_transactions
       stub_request(:get, "https://my.brokermint.com/api/v1/transactions").
+        with(query: {api_key: 'alohomora'}).
         to_return(status: 200, body: api_fixture('transactions/all'))
-      connection = Brokermint::Client.new('access_token').connection
+      connection = Brokermint::Client.new('alohomora').connection
       resource = Brokermint::TransactionResource.new(connection: connection)
 
       transactions = resource.all
@@ -20,8 +21,9 @@ class Brokermint::ContactResourceTest < Minitest::Test
 
     def test_returns_a_transaction
       stub_request(:get, "https://my.brokermint.com/api/v1/transactions/1234").
+        with(query: {api_key: 'alohomora'}).
         to_return(status: 200, body: api_fixture('transactions/1234'))
-      connection = Brokermint::Client.new('access_token').connection
+      connection = Brokermint::Client.new('alohomora').connection
       resource = Brokermint::TransactionResource.new(connection: connection)
 
       transaction = resource.find(transaction_id: 1234)
@@ -55,8 +57,9 @@ class Brokermint::ContactResourceTest < Minitest::Test
 
     def test_returns_custom_attributes_associated_with_a_transaction
       stub_request(:get, "https://my.brokermint.com/api/v1/transactions/1234").
+        with(query: {api_key: 'alohomora'}).
         to_return(status: 200, body: api_fixture('transactions/1234'))
-      connection = Brokermint::Client.new('access_token').connection
+      connection = Brokermint::Client.new('alohomora').connection
       resource = Brokermint::TransactionResource.new(connection: connection)
 
       transaction = resource.find(transaction_id: 1234)
@@ -79,8 +82,9 @@ class Brokermint::ContactResourceTest < Minitest::Test
 
     def test_returns_valid_representer_for_a_transaction
       stub_request(:get, "https://my.brokermint.com/api/v1/transactions/1234").
+        with(query: {api_key: 'alohomora'}).
         to_return(status: 200, body: api_fixture('transactions/1234'))
-      connection = Brokermint::Client.new('access_token').connection
+      connection = Brokermint::Client.new('alohomora').connection
       resource = Brokermint::TransactionResource.new(connection: connection)
 
       transaction = resource.find(transaction_id: 1234)
@@ -113,9 +117,9 @@ class Brokermint::ContactResourceTest < Minitest::Test
         timezone: -4
       )
       stub_request(:post, "https://my.brokermint.com/api/v1/transactions").
-        with(body: Brokermint::TransactionMapping.representation_for(:create, brokermint_transaction)).
+        with(query: {api_key: 'alohomora'}, body: Brokermint::TransactionMapping.representation_for(:create, brokermint_transaction)).
         to_return(status: 201, body: api_fixture('transactions/1234'))
-      connection = Brokermint::Client.new('access_token').connection
+      connection = Brokermint::Client.new('alohomora').connection
       resource = Brokermint::TransactionResource.new(connection: connection)
 
       transaction = resource.create(brokermint_transaction)
@@ -157,9 +161,9 @@ class Brokermint::ContactResourceTest < Minitest::Test
         status: 'listed'
       )
       stub_request(:put, "https://my.brokermint.com/api/v1/transactions/1234").
-        with(body: "{\"city\":\"Chester\",\"state\":\"CA\",\"status\":\"listed\",\"external_id\":\"TEST-ID1\",\"custom_attributes\":[]}").
+        with(query: {api_key: 'alohomora'}, body: "{\"city\":\"Chester\",\"state\":\"CA\",\"status\":\"listed\",\"external_id\":\"TEST-ID1\",\"custom_attributes\":[]}").
         to_return(status: 200, body: api_fixture('transactions/1234'))
-      connection = Brokermint::Client.new('access_token').connection
+      connection = Brokermint::Client.new('alohomora').connection
       resource = Brokermint::TransactionResource.new(connection: connection)
 
       transaction = resource.update(brokermint_transaction, transaction_id: 1234)
@@ -195,8 +199,9 @@ class Brokermint::ContactResourceTest < Minitest::Test
   class Destroy < Minitest::Test
     def test_returns_true_for_a_destroy_response
       stub_request(:delete, "https://my.brokermint.com/api/v1/transactions/1234").
+        with(query: {api_key: 'alohomora'}).
         to_return(status: 200, body: '')
-      connection = Brokermint::Client.new('access_token').connection
+      connection = Brokermint::Client.new('alohomora').connection
       resource = Brokermint::TransactionResource.new(connection: connection)
 
       transaction = resource.destroy(transaction_id: 1234)

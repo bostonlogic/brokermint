@@ -3,10 +3,12 @@ require 'test_helper'
 class Brokermint::UserResourceTest < Minitest::Test
 
   class All < Minitest::Test
+
     def test_returns_an_array_of_users
       stub_request(:get, "https://my.brokermint.com/api/v1/users").
+        with(query: {api_key: 'alohomora'}).
         to_return(status: 200, body: api_fixture('users/all'))
-      connection = Brokermint::Client.new('access_token').connection
+      connection = Brokermint::Client.new('alohomora').connection
       resource = Brokermint::UserResource.new(connection: connection)
 
       users = resource.all
@@ -14,13 +16,28 @@ class Brokermint::UserResourceTest < Minitest::Test
       assert_instance_of Array, users
       users.each{ |user| assert_instance_of Brokermint::User, user }
     end
+
+    def test_uses_passed_in_query_keys
+      stub_request(:get, "https://my.brokermint.com/api/v1/users").
+        with(query: {api_key: 'alohomora', external_ids: '1,2,3,4'}).
+        to_return(status: 200, body: api_fixture('users/all'))
+      connection = Brokermint::Client.new('alohomora').connection
+      resource = Brokermint::UserResource.new(connection: connection)
+
+      users = resource.all(external_ids: '1,2,3,4')
+
+      assert_instance_of Array, users
+      users.each{ |user| assert_instance_of Brokermint::User, user }
+    end
+
   end
 
   class Find < Minitest::Test
     def test_returns_a_user
       stub_request(:get, "https://my.brokermint.com/api/v1/users/1234").
+        with(query: {api_key: 'alohomora'}).
         to_return(status: 200, body: api_fixture('users/1234'))
-      connection = Brokermint::Client.new('access_token').connection
+      connection = Brokermint::Client.new('alohomora').connection
       resource = Brokermint::UserResource.new(connection: connection)
 
       user = resource.find(user_id: 1234)
@@ -53,8 +70,9 @@ class Brokermint::UserResourceTest < Minitest::Test
   class SsoToken < Minitest::Test
     def test_returns_a_user_sso_token
       stub_request(:get, "https://my.brokermint.com/api/v1/users/1234/sso_token").
+        with(query: {api_key: 'alohomora'}).
         to_return(status: 200, body: api_fixture('users/sso_token'))
-      connection = Brokermint::Client.new('access_token').connection
+      connection = Brokermint::Client.new('alohomora').connection
       resource = Brokermint::UserResource.new(connection: connection)
 
       user = resource.sso_token(user_id: 1234)

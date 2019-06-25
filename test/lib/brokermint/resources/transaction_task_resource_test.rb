@@ -6,8 +6,9 @@ class Brokermint::TransactionTaskResourceTest < Minitest::Test
 
     def setup
       stub_request(:get, 'https://my.brokermint.com/api/v1/transactions/1234/checklists/1234/tasks').
+        with(query: {api_key: 'alohomora'}).
         to_return(status: 200, body: api_fixture('transaction_tasks/all'))
-      connection = Brokermint::Client.new('access_token').connection
+      connection = Brokermint::Client.new('alohomora').connection
       resource = Brokermint::TransactionTaskResource.new(connection: connection)
 
       @transaction_tasks = resource.all(transaction_id: 1234, checklist_id: 1234)
@@ -53,8 +54,9 @@ class Brokermint::TransactionTaskResourceTest < Minitest::Test
 
     def test_maps_a_transaction_task
       stub_request(:get, 'https://my.brokermint.com/api/v1/transactions/1234/checklists/1234/tasks/1234').
+        with(query: {api_key: 'alohomora'}).
         to_return(status: 200, body: api_fixture('transaction_tasks/1234'))
-      connection = Brokermint::Client.new('access_token').connection
+      connection = Brokermint::Client.new('alohomora').connection
       resource = Brokermint::TransactionTaskResource.new(connection: connection)
 
       transaction_task = resource.find(transaction_id: 1234, checklist_id: 1234, task_id: 1234)
@@ -76,8 +78,9 @@ class Brokermint::TransactionTaskResourceTest < Minitest::Test
 
     def test_maps_a_transaction_task_with_comments
       stub_request(:get, 'https://my.brokermint.com/api/v1/transactions/1234/checklists/1234/tasks/5678').
+        with(query: {api_key: 'alohomora'}).
         to_return(status: 200, body: api_fixture('transaction_tasks/5678'))
-      connection = Brokermint::Client.new('access_token').connection
+      connection = Brokermint::Client.new('alohomora').connection
       resource = Brokermint::TransactionTaskResource.new(connection: connection)
 
       transaction_task = resource.find(transaction_id: 1234, checklist_id: 1234, task_id: 5678)
@@ -99,8 +102,9 @@ class Brokermint::TransactionTaskResourceTest < Minitest::Test
 
     def test_maps_comments_associatted_with_a_transaction_task
       stub_request(:get, 'https://my.brokermint.com/api/v1/transactions/1234/checklists/1234/tasks/5678').
+        with(query: {api_key: 'alohomora'}).
         to_return(status: 200, body: api_fixture('transaction_tasks/5678'))
-      connection = Brokermint::Client.new('access_token').connection
+      connection = Brokermint::Client.new('alohomora').connection
       resource = Brokermint::TransactionTaskResource.new(connection: connection)
 
       transaction_task = resource.find(transaction_id: 1234, checklist_id: 1234, task_id: 5678)
@@ -130,9 +134,9 @@ class Brokermint::TransactionTaskResourceTest < Minitest::Test
         document_id: 1234
       )
       stub_request(:post, 'https://my.brokermint.com/api/v1/transactions/1234/checklists/1234/tasks').
-        with(body: Brokermint::TransactionTaskMapping.representation_for(:create, brokermint_transaction_task)).
+        with(query: {api_key: 'alohomora'}, body: Brokermint::TransactionTaskMapping.representation_for(:create, brokermint_transaction_task)).
         to_return(status: 200, body: api_fixture('transaction_tasks/9012'))
-      connection = Brokermint::Client.new('access_token').connection
+      connection = Brokermint::Client.new('alohomora').connection
       resource = Brokermint::TransactionTaskResource.new(connection: connection)
 
       transaction_task = resource.create(brokermint_transaction_task, transaction_id: 1234, checklist_id: 1234)
@@ -158,9 +162,9 @@ class Brokermint::TransactionTaskResourceTest < Minitest::Test
         comments: [Brokermint::Comment.new(text: 'Lily had the right idea', author: 'Ginny Weasley')]
       )
       stub_request(:put, 'https://my.brokermint.com/api/v1/transactions/1234/checklists/1234/tasks/9012').
-        with(body: "{\"description\":\"Gin, Bitter Lemon, Ice. Garnish with a Lemon slice and Lime Slice\",\"comments\":[{\"text\":\"Lily had the right idea\",\"author\":\"Ginny Weasley\",\"author_id\":null}]}").
+        with(query: {api_key: 'alohomora'}, body: "{\"description\":\"Gin, Bitter Lemon, Ice. Garnish with a Lemon slice and Lime Slice\",\"comments\":[{\"text\":\"Lily had the right idea\",\"author\":\"Ginny Weasley\",\"author_id\":null}]}").
         to_return(status: 200, body: api_fixture('transaction_tasks/9012_updated'))
-      connection = Brokermint::Client.new('access_token').connection
+      connection = Brokermint::Client.new('alohomora').connection
       resource = Brokermint::TransactionTaskResource.new(connection: connection)
 
       transaction_task = resource.update(brokermint_transaction, transaction_id: 1234, checklist_id: 1234, task_id: 9012)
@@ -178,8 +182,9 @@ class Brokermint::TransactionTaskResourceTest < Minitest::Test
     def test_returns_true_for_a_destroy_response
       skip('Unsure of what is required for this endpoint')
       stub_request(:post, 'https://my.brokermint.com/api/v1/transactions/1234/checklists/1234/tasks/9012/submit_document').
+        with(query: {api_key: 'alohomora'}).
         to_return(status: 200, body: '')
-      connection = Brokermint::Client.new('access_token').connection
+      connection = Brokermint::Client.new('alohomora').connection
       resource = Brokermint::TransactionTaskResource.new(connection: connection)
 
       transaction_task = resource.destroy(transaction_id: 1234)

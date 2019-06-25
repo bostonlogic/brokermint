@@ -5,8 +5,9 @@ class Brokermint::ContactResourceTest < Minitest::Test
   class All < Minitest::Test
     def test_returns_an_array_of_contacts
       stub_request(:get, "https://my.brokermint.com/api/v1/contacts").
+        with(query: {api_key: 'alohomora'}).
         to_return(status: 200, body: api_fixture('contacts/all'))
-      connection = Brokermint::Client.new('access_token').connection
+      connection = Brokermint::Client.new('alohomora').connection
       resource = Brokermint::ContactResource.new(connection: connection)
 
       contacts = resource.all
@@ -20,8 +21,9 @@ class Brokermint::ContactResourceTest < Minitest::Test
 
     def test_returns_a_contact
       stub_request(:get, "https://my.brokermint.com/api/v1/contacts/1234").
+        with(query: {api_key: 'alohomora'}).
         to_return(status: 200, body: api_fixture('contacts/1234'))
-      connection = Brokermint::Client.new('access_token').connection
+      connection = Brokermint::Client.new('alohomora').connection
       resource = Brokermint::ContactResource.new(connection: connection)
 
       contact = resource.find(contact_id: 1234)
@@ -52,8 +54,9 @@ class Brokermint::ContactResourceTest < Minitest::Test
 
     def test_returns_a_contact_with_comments
       stub_request(:get, "https://my.brokermint.com/api/v1/contacts/5678").
+        with(query: {api_key: 'alohomora'}).
         to_return(status: 200, body: api_fixture('contacts/5678'))
-      connection = Brokermint::Client.new('access_token').connection
+      connection = Brokermint::Client.new('alohomora').connection
       resource = Brokermint::ContactResource.new(connection: connection)
 
       contact = resource.find(contact_id: 5678)
@@ -84,8 +87,9 @@ class Brokermint::ContactResourceTest < Minitest::Test
 
     def test_returns_a_contact_with_comments_and_maps_them_correctly
       stub_request(:get, "https://my.brokermint.com/api/v1/contacts/5678").
+        with(query: {api_key: 'alohomora'}).
         to_return(status: 200, body: api_fixture('contacts/5678'))
-      connection = Brokermint::Client.new('access_token').connection
+      connection = Brokermint::Client.new('alohomora').connection
       resource = Brokermint::ContactResource.new(connection: connection)
 
       contact = resource.find(contact_id: 5678)
@@ -108,9 +112,9 @@ class Brokermint::ContactResourceTest < Minitest::Test
         mobile_phone: '617.123.4567'
       )
       stub_request(:post, "https://my.brokermint.com/api/v1/contacts").
-        with(body: Brokermint::ContactMapping.representation_for(:create, brokermint_contact)).
+        with(query: {api_key: 'alohomora'}, body: Brokermint::ContactMapping.representation_for(:create, brokermint_contact)).
         to_return(status: 201, body: api_fixture('contacts/1234'))
-      connection = Brokermint::Client.new('access_token').connection
+      connection = Brokermint::Client.new('alohomora').connection
       resource = Brokermint::ContactResource.new(connection: connection)
 
       contact = resource.create(brokermint_contact)
@@ -149,9 +153,9 @@ class Brokermint::ContactResourceTest < Minitest::Test
         mobile_phone: '617.123.4567'
       )
       stub_request(:put, "https://my.brokermint.com/api/v1/contacts/1234").
-        with(body: "{\"first_name\":\"Hermione\",\"last_name\":\"Granger\",\"email\":\"hermione.granger@hogwarts.edu\",\"mobile_phone\":\"617.123.4567\",\"custom_attributes\":[]}").
+        with(query: {api_key: 'alohomora'}, body: "{\"first_name\":\"Hermione\",\"last_name\":\"Granger\",\"email\":\"hermione.granger@hogwarts.edu\",\"mobile_phone\":\"617.123.4567\",\"custom_attributes\":[]}").
         to_return(status: 200, body: api_fixture('contacts/1234'))
-      connection = Brokermint::Client.new('access_token').connection
+      connection = Brokermint::Client.new('alohomora').connection
       resource = Brokermint::ContactResource.new(connection: connection)
 
       contact = resource.update(brokermint_contact, contact_id: 1234)
@@ -184,8 +188,9 @@ class Brokermint::ContactResourceTest < Minitest::Test
   class Destroy < Minitest::Test
     def test_returns_true_for_a_destroy_response
       stub_request(:delete, "https://my.brokermint.com/api/v1/contacts/5678").
+        with(query: {api_key: 'alohomora'}).
         to_return(status: 200, body: '')
-      connection = Brokermint::Client.new('access_token').connection
+      connection = Brokermint::Client.new('alohomora').connection
       resource = Brokermint::ContactResource.new(connection: connection)
 
       contact = resource.destroy(contact_id: 5678)

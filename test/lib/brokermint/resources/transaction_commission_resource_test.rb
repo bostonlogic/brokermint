@@ -6,8 +6,9 @@ class Brokermint::TransactionCommissionResourceTest < Minitest::Test
 
     def setup
       stub_request(:get, 'https://my.brokermint.com/api/v1/transactions/1234/commissions').
+        with(query: {api_key: 'alohomora'}).
         to_return(status: 200, body: api_fixture('transaction_commissions/all'))
-      connection = Brokermint::Client.new('access_token').connection
+      connection = Brokermint::Client.new('alohomora').connection
       resource = Brokermint::TransactionCommissionResource.new(connection: connection)
 
       @transaction_commissions = resource.all(transaction_id: 1234)
@@ -74,7 +75,7 @@ class Brokermint::TransactionCommissionResourceTest < Minitest::Test
 
     def test_tags_are_mapped_properly
       commission_tags = @transaction_commissions.last.tags
-      
+
       assert_equal ['1099', 'extra comm'], commission_tags
     end
 

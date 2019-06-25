@@ -69,6 +69,11 @@ class Brokermint::ClientTest < Minitest::Test
       assert_raises(NoMethodError) { brokermint_client.not_a_thing }
     end
 
+    def test_client_has_expected_valuea_for_connection
+      assert_equal 'application/json', @brokermint_client.connection.headers['Content-Type']
+      assert_equal({'api_key'=>'alohomora'}, @brokermint_client.connection.params)
+    end
+
   end
 
 end

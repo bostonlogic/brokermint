@@ -63,10 +63,10 @@ class Brokermint::IncomingTransactionResourceTest < Minitest::Test
       )
 
       stub_request(:post, 'https://my.brokermint.com/api/v1/incoming_transactions').
-        with(body: Brokermint::IncomingTransactionMapping.representation_for(:create, incoming_transaction)).
+        with(query: {api_key: 'alohomora'}, body: Brokermint::IncomingTransactionMapping.representation_for(:create, incoming_transaction)).
         to_return(status: 200, body: api_fixture('incoming_transactions/all'))
 
-      connection = Brokermint::Client.new('access_token').connection
+      connection = Brokermint::Client.new('alohomora').connection
       resource = Brokermint::IncomingTransactionResource.new(connection: connection)
 
       @incoming_transactions = resource.create(incoming_transaction)

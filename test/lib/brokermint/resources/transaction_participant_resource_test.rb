@@ -6,9 +6,10 @@ class Brokermint::TransactionParticipantResourceTest < Minitest::Test
 
     def setup
       stub_request(:get, 'https://my.brokermint.com/api/v1/transactions/1234/participants').
+        with(query: {api_key: 'alohomora'}).
         to_return(status: 200, body: api_fixture('transaction_participants/all'))
 
-      connection = Brokermint::Client.new('access_token').connection
+      connection = Brokermint::Client.new('alohomora').connection
       resource = Brokermint::TransactionParticipantResource.new(connection: connection)
 
       @transaction_participants = resource.all(transaction_id: 1234)
@@ -43,9 +44,10 @@ class Brokermint::TransactionParticipantResourceTest < Minitest::Test
 
     def setup
       stub_request(:get, 'https://my.brokermint.com/api/v1/transactions/1234/participants/contacts').
+        with(query: {api_key: 'alohomora'}).
         to_return(status: 200, body: api_fixture('transaction_participants/contacts'))
 
-      connection = Brokermint::Client.new('access_token').connection
+      connection = Brokermint::Client.new('alohomora').connection
       resource = Brokermint::TransactionParticipantResource.new(connection: connection)
 
       @transaction_participants = resource.contacts(transaction_id: 1234)
@@ -73,9 +75,10 @@ class Brokermint::TransactionParticipantResourceTest < Minitest::Test
 
     def setup
       stub_request(:get, 'https://my.brokermint.com/api/v1/transactions/1234/participants/users').
+        with(query: {api_key: 'alohomora'}).
         to_return(status: 200, body: api_fixture('transaction_participants/users'))
 
-      connection = Brokermint::Client.new('access_token').connection
+      connection = Brokermint::Client.new('alohomora').connection
       resource = Brokermint::TransactionParticipantResource.new(connection: connection)
 
       @transaction_participants = resource.users(transaction_id: 1234)
@@ -103,9 +106,10 @@ class Brokermint::TransactionParticipantResourceTest < Minitest::Test
 
     def setup
       stub_request(:get, 'https://my.brokermint.com/api/v1/transactions/1234/participants/contacts/1234').
+        with(query: {api_key: 'alohomora'}).
         to_return(status: 200, body: api_fixture('transaction_participants/contact_1234'))
 
-      connection = Brokermint::Client.new('access_token').connection
+      connection = Brokermint::Client.new('alohomora').connection
       resource = Brokermint::TransactionParticipantResource.new(connection: connection)
 
       @transaction_participant = resource.contact(transaction_id: 1234, contact_id: 1234)
@@ -131,9 +135,10 @@ class Brokermint::TransactionParticipantResourceTest < Minitest::Test
 
     def setup
       stub_request(:get, 'https://my.brokermint.com/api/v1/transactions/1234/participants/users/1234').
+        with(query: {api_key: 'alohomora'}).
         to_return(status: 200, body: api_fixture('transaction_participants/user_1234'))
 
-      connection = Brokermint::Client.new('access_token').connection
+      connection = Brokermint::Client.new('alohomora').connection
       resource = Brokermint::TransactionParticipantResource.new(connection: connection)
 
       @transaction_participant = resource.user(transaction_id: 1234, user_id: 1234)
@@ -162,9 +167,9 @@ class Brokermint::TransactionParticipantResourceTest < Minitest::Test
         role: 'Agent'
       )
       stub_request(:post, 'https://my.brokermint.com/api/v1/transactions/1234/participants/contacts').
-        with(body: Brokermint::TransactionParticipantMapping.representation_for(:create, brokermint_transaction_participant)).
+        with(query: {api_key: 'alohomora'}, body: Brokermint::TransactionParticipantMapping.representation_for(:create, brokermint_transaction_participant)).
         to_return(status: 201, body: api_fixture('transaction_participants/contact_1234'))
-      connection = Brokermint::Client.new('access_token').connection
+      connection = Brokermint::Client.new('alohomora').connection
       resource = Brokermint::TransactionParticipantResource.new(connection: connection)
 
       transaction_participant = resource.create_contact(brokermint_transaction_participant, transaction_id: 1234)
@@ -187,9 +192,9 @@ class Brokermint::TransactionParticipantResourceTest < Minitest::Test
         role: 'Agent'
       )
       stub_request(:post, 'https://my.brokermint.com/api/v1/transactions/1234/participants/users').
-        with(body: Brokermint::TransactionParticipantMapping.representation_for(:create, brokermint_transaction_participant)).
+        with(query: {api_key: 'alohomora'}, body: Brokermint::TransactionParticipantMapping.representation_for(:create, brokermint_transaction_participant)).
         to_return(status: 201, body: api_fixture('transaction_participants/user_1234'))
-      connection = Brokermint::Client.new('access_token').connection
+      connection = Brokermint::Client.new('alohomora').connection
       resource = Brokermint::TransactionParticipantResource.new(connection: connection)
 
       transaction_participant = resource.create_user(brokermint_transaction_participant, transaction_id: 1234)
@@ -211,9 +216,9 @@ class Brokermint::TransactionParticipantResourceTest < Minitest::Test
         role: 'Seller'
       )
       stub_request(:put, 'https://my.brokermint.com/api/v1/transactions/1234/participants/contacts/1234').
-        with(body: "{\"role\":\"Seller\"}").
+        with(query: {api_key: 'alohomora'}, body: "{\"role\":\"Seller\"}").
         to_return(status: 201, body: api_fixture('transaction_participants/contact_1234'))
-      connection = Brokermint::Client.new('access_token').connection
+      connection = Brokermint::Client.new('alohomora').connection
       resource = Brokermint::TransactionParticipantResource.new(connection: connection)
 
       transaction_participant = resource.update_contact(brokermint_transaction_participant, transaction_id: 1234, contact_id: 1234)
@@ -235,9 +240,9 @@ class Brokermint::TransactionParticipantResourceTest < Minitest::Test
         role: 'Broker'
       )
       stub_request(:put, 'https://my.brokermint.com/api/v1/transactions/1234/participants/users/1234').
-        with(body: "{\"role\":\"Broker\"}").
+        with(query: {api_key: 'alohomora'}, body: "{\"role\":\"Broker\"}").
         to_return(status: 201, body: api_fixture('transaction_participants/user_1234'))
-      connection = Brokermint::Client.new('access_token').connection
+      connection = Brokermint::Client.new('alohomora').connection
       resource = Brokermint::TransactionParticipantResource.new(connection: connection)
 
       transaction_participant = resource.update_user(brokermint_transaction_participant, transaction_id: 1234, user_id: 1234)
@@ -256,8 +261,9 @@ class Brokermint::TransactionParticipantResourceTest < Minitest::Test
   class DestroyContact < Minitest::Test
     def test_returns_true_for_a_destroy_response
       stub_request(:delete, 'https://my.brokermint.com/api/v1/transactions/1234/participants/contacts/1234').
+        with(query: {api_key: 'alohomora'}).
         to_return(status: 200, body: '')
-      connection = Brokermint::Client.new('access_token').connection
+      connection = Brokermint::Client.new('alohomora').connection
       resource = Brokermint::TransactionParticipantResource.new(connection: connection)
 
       transaction_participant = resource.destroy_contact(transaction_id: 1234, contact_id: 1234)
@@ -269,8 +275,9 @@ class Brokermint::TransactionParticipantResourceTest < Minitest::Test
   class DestroyUser < Minitest::Test
     def test_returns_true_for_a_destroy_response
       stub_request(:delete, 'https://my.brokermint.com/api/v1/transactions/1234/participants/users/1234').
+        with(query: {api_key: 'alohomora'}).
         to_return(status: 200, body: '')
-      connection = Brokermint::Client.new('access_token').connection
+      connection = Brokermint::Client.new('alohomora').connection
       resource = Brokermint::TransactionParticipantResource.new(connection: connection)
 
       transaction_participant = resource.destroy_user(transaction_id: 1234, user_id: 1234)

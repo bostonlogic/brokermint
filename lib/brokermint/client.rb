@@ -51,9 +51,8 @@ module Brokermint
     def connection_options
       {
         url: Brokermint.configuration.api_url,
-        headers: {
-          content_type: 'application/json'
-        }
+        headers: { content_type: 'application/json' },
+        params:  { api_key: @api_key }
       }
     end
 

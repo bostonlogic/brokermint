@@ -6,9 +6,10 @@ class Brokermint::TransactionBackupResourceTest < Minitest::Test
 
     def setup
       stub_request(:get, 'https://my.brokermint.com/api/v1/backups').
+        with(query: {api_key: 'alohomora'}).
         to_return(status: 200, body: api_fixture('transaction_backups/all'))
 
-      connection = Brokermint::Client.new('access_token').connection
+      connection = Brokermint::Client.new('alohomora').connection
       resource = Brokermint::TransactionBackupResource.new(connection: connection)
 
       @transaction_backups = resource.all
@@ -32,9 +33,10 @@ class Brokermint::TransactionBackupResourceTest < Minitest::Test
 
     def test_returns_a_backup
       stub_request(:get, 'https://my.brokermint.com/api/v1transactions/1234/backup').
+        with(query: {api_key: 'alohomora'}).
         to_return(status: 200, body: api_fixture('transaction_backups/1234'))
 
-      connection = Brokermint::Client.new('access_token').connection
+      connection = Brokermint::Client.new('alohomora').connection
       resource = Brokermint::TransactionBackupResource.new(connection: connection)
 
       transaction_backup = resource.find(transaction_id: 1234)
