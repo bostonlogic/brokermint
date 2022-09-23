@@ -68,6 +68,7 @@ module Brokermint
   # autoload :PaginatedResource, 'brokermint/paginated_resource'
 
   autoload :ErrorMapping, 'brokermint/mappings/error_mapping'
+  
   Error = Class.new(StandardError)
   UnauthorizedError = Class.new(Brokermint::Error)
   ForbiddenError = Class.new(Brokermint::Error)
